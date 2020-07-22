@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
 }
-.side-bar {
+.side_bar {
   background-color: #253141;
   width: 300px;
   height: 100vh;
@@ -49,7 +49,7 @@
   color: white;
 }
 
-.chat {
+.main_chat {
   background-color: #ffffff;
   width: calc(100% - 300px);
 }
