@@ -13,13 +13,13 @@ RSpec.describe "チャットールームの削除機能", type: :system do
     click_on(@room_user.room.name)
 
     # メッセージ情報を5つDBに追加する
-    FactoryBot.create_list(:message, ４, room_id, @room_user.room.id, user_id: @room_user.user.id)
+    FactoryBot.create_list(:message, 5, room_id: @room_user.room.id, user_id: @room_user.user.id)
     # 「チャットを終了する」ボタンをクリックすることで、作成した5つのメッセージが削除されていることを期待する
     expect{
       find_link("チャットを終了する", href: room_path(@room_user.room)).click
-  }.to change { @room_user.room.messages.count }.by(6)
+  }.to change { @room_user.room.messages.count }.by(-5)
     # 追加数と削除数が相違していた場合エラーが出る
-    
+
     # ルートページに遷移されることを期待する
   expect(current_path).to eq root_path
   end
